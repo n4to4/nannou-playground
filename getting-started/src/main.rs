@@ -9,7 +9,9 @@ fn view(app: &App, frame: Frame) {
     let draw = app.draw();
 
     // set background to blue
-    draw.background().color(BLUE);
+    draw.background().color(PLUM);
+
+    draw.ellipse().color(STEELBLUE);
 
     // put everything on the frame
     draw.to_frame(app, &frame).unwrap();
