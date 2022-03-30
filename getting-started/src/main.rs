@@ -1,18 +1,23 @@
 use nannou::prelude::*;
 
 fn main() {
-    nannou::sketch(view).run();
+    nannou::app(model).update(update).run();
 }
 
-fn view(app: &App, frame: Frame) {
-    // get canvas to draw on
+struct Model {
+    _window: window::Id,
+}
+
+fn model(app: &App) -> Model {
+    let _window = app.new_window().view(view).build().unwrap();
+    Model { _window }
+}
+
+fn update(_app: &App, _model: &mut Model, _update: Update) {}
+
+fn view(app: &App, _model: &Model, frame: Frame) {
     let draw = app.draw();
-
-    // set background to blue
     draw.background().color(PLUM);
-
     draw.ellipse().color(STEELBLUE);
-
-    // put everything on the frame
     draw.to_frame(app, &frame).unwrap();
 }
