@@ -14,10 +14,6 @@ fn update(_app: &App, _model: &mut Model, _update: Update) {}
 
 fn view(app: &App, _model: &Model, frame: Frame) {
     let draw = app.draw();
-    draw.rect()
-        .x_y(0.0, 0.0)
-        .w_h(100.0, 100.0)
-        .z_degrees(45.0)
-        .color(PLUM);
+    draw.rect().x_y(50.0, 50.0).w_h(100.0, 100.0).color(PLUM);
     draw.to_frame(app, &frame).unwrap();
 }
