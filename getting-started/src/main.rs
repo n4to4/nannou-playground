@@ -15,11 +15,12 @@ fn update(_app: &App, _model: &mut Model, _update: Update) {}
 fn view(app: &App, _model: &Model, frame: Frame) {
     let win = app.window_rect();
     let win_p = win.pad(25.0);
-    let r = Rect::from_w_h(100.0f32, 100.0f32).top_left_of(win_p);
+    let square = Rect::from_w_h(100.0, 100.0).top_left_of(win_p);
+
     let draw = app.draw();
-    draw.rect()
-        .xy(r.xy())
-        .wh(r.wh())
-        .color(rgba(0.3, 0.4, 0.7, 0.5));
+    draw.rect().xy(square.xy()).wh(square.wh()).color(PLUM);
+    let circle = square.below(square);
+    draw.ellipse().xy(circle.xy()).wh(circle.wh()).color(SALMON);
+
     draw.to_frame(app, &frame).unwrap();
 }
