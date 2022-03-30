@@ -13,7 +13,9 @@ fn model(_app: &App) -> Model {
 fn update(_app: &App, _model: &mut Model, _update: Update) {}
 
 fn view(app: &App, _model: &Model, frame: Frame) {
+    let win = app.window_rect();
+    let r = Rect::from_w_h(100.0f32, 100.0f32).top_left_of(win);
     let draw = app.draw();
-    draw.rect().x_y(50.0, 50.0).w_h(100.0, 100.0).color(PLUM);
+    draw.rect().xy(r.xy()).wh(r.wh()).color(PLUM);
     draw.to_frame(app, &frame).unwrap();
 }
