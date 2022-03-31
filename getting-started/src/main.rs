@@ -9,7 +9,16 @@ fn view(app: &App, frame: Frame) {
 
     draw.background().color(PLUM);
 
-    draw.rect().color(STEELBLUE).w(300.0).h(200.0);
+    let point1 = pt2(-10.0, -20.0);
+    let point2 = pt2(10.0, -30.0);
+    let point3 = pt2(15.0, 40.0);
+    let point4 = pt2(-20.0, 35.0);
+
+    draw.quad()
+        .color(STEELBLUE)
+        .w(300.0)
+        .h(200.0)
+        .points(point1, point2, point3, point4);
 
     draw.to_frame(app, &frame).unwrap();
 }
