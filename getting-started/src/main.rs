@@ -9,13 +9,15 @@ fn view(app: &App, frame: Frame) {
 
     draw.background().color(PLUM);
 
-    let points = (0..50).map(|i| {
-        let x = i as f32 - 25.0;
-        let point = pt2(x, x.sin()) * 20.0;
-        (point, STEELBLUE)
+    let radius = 150.0;
+    let points = (0..360).map(|i| {
+        let radian = deg_to_rad(i as f32);
+        let x = radian.sin() * radius;
+        let y = radian.cos() * radius;
+        (pt2(x, y), STEELBLUE)
     });
 
-    draw.polyline().weight(4.0).points_colored(points);
+    draw.polyline().weight(3.0).points_colored(points);
 
     draw.to_frame(app, &frame).unwrap();
 }
