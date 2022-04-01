@@ -9,14 +9,13 @@ fn view(app: &App, frame: Frame) {
 
     draw.background().color(PLUM);
 
-    let start_point = pt2(-30.0, -20.0);
-    let end_point = pt2(40.0, 40.0);
+    let points = (0..50).map(|i| {
+        let x = i as f32 - 25.0;
+        let point = pt2(x, x.sin()) * 20.0;
+        (point, STEELBLUE)
+    });
 
-    draw.line()
-        .start(start_point)
-        .end(end_point)
-        .weight(4.0)
-        .color(STEELBLUE);
+    draw.polyline().weight(4.0).points_colored(points);
 
     draw.to_frame(app, &frame).unwrap();
 }
