@@ -17,7 +17,7 @@ fn view(app: &App, frame: Frame) {
         (pt2(x, y), STEELBLUE)
     });
 
-    draw.polyline().weight(3.0).points_colored(points);
+    draw.polygon().points_colored(points);
 
     draw.to_frame(app, &frame).unwrap();
 }
