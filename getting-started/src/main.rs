@@ -10,7 +10,7 @@ fn view(app: &App, frame: Frame) {
     draw.background().color(PLUM);
 
     let radius = 150.0;
-    let points = (0..360).map(|i| {
+    let points = (0..=360).step_by(45).map(|i| {
         let radian = deg_to_rad(i as f32);
         let x = radian.sin() * radius;
         let y = radian.cos() * radius;
