@@ -13,6 +13,9 @@ fn model(_app: &App) -> Model {
 fn event(_app: &App, _model: &mut Model, _event: Event) {}
 
 fn view(app: &App, _model: &Model, frame: Frame) {
+    let sine = app.time.sin();
+    let slowersine = (app.time / 2.0).sin();
+
     let draw = app.draw();
     draw.background().color(PLUM);
     draw.ellipse().color(STEELBLUE).x_y(0.0, 0.0);
